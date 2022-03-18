@@ -1,64 +1,31 @@
-.btn{
-  position: relative;/*5 позиционирование кнопки green*/
-  display: inline-flex;
-  border: none;
+.menu{
+  padding: 0;
   margin: 0;
-  padding: 10px 30px;
-  border-radius: 3px;
-  background-color: #008080;
-  color: #fff;
-  font: inherit;
-  cursor: pointer;
-  transition:  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  overflow: hidden;/*8*/
+  list-style: none;
+  display: flex;
 }
-/*1 before для красного кубика*/
-.btn::before{
+.menu-item:not(:last-child){
+  margin-right: 10px;
+}
+.menu-link{
+  outline: 1px solid black;
+
+  position: relative;
+
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: currentColor;
+}
+.menu-link::after{
   content: '';
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
 
-  /* можно так подставить картинку bg red убрать
-  background-image: url();
-  background-size: contain;*/
+  position: absolute;
+  left: 0;
+  bottom: 0;
 
+  display: block;
+  width: 100%;
+  height: 5px;
   background-color: red;
-/*3*/
-  transition: transform  250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-/*2*/
-.btn:hover::before, 
-.btn:focus::before{
-  transform: translateY(-35px);
-}
-/*4 для кубика которыей станет на место красного*/
-.btn::after{
-  position: absolute;/*6*/
-  top: 50%;
-  left: 30px;
-  transform: translateY(calc(-50% + 35px));
-  transition: transform  250ms cubic-bezier(0.4, 0, 0.2, 1);/*6*/
-
-  content: '';
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-/* можно так подставить картинку bg orange убрать
-  background-image: url();
-  background-size: contain;*/
-  
-  background-color: orange;
-}
-/*7*/
-.btn:hover::after,
-.btn:focus::after{
-  transform: translateY(-50%);
-}
-
-.btn:hover,
-.btn:focus{
-  background-color: #d87093;
 }
